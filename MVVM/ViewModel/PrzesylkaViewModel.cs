@@ -16,10 +16,8 @@ namespace MVVM.ViewModel
         public double WpisanaWaga { get; set; } = 5.0;
         public bool WybranyzEkspres{ get; set; } = false;
 
-        private string _komunikatWyniku = "Wpisz dane i kliknij Oblicz"; //co to daje bo nie czaje
-        //czemu jest private i po co nam to skoro jako wynik chcemy miec jakies obliczenia a nie informajce o tym zeby cos wpisac
-        //i czemu napisales to z _
-        public string KomunikatWyniku //nie czaje nic w tym konstruktorze
+        private string _komunikatWyniku = "Wpisz dane i kliknij Oblicz"; 
+        public string KomunikatWyniku 
         {
             get { return _komunikatWyniku; }
             set
@@ -29,9 +27,9 @@ namespace MVVM.ViewModel
             }
         }
 
-        public ICommand ObliczCeneCommand { get; set; }//nie wiem co to ICommand
+        public ICommand ObliczCeneCommand { get; set; }
 
-        public PrzesylkaViewModel()//czemu tutaj nie wpisujemy zadnych parametrow?
+        public PrzesylkaViewModel()
         {
             ObliczCeneCommand = new Command(Oblicz);
         }
@@ -42,8 +40,7 @@ namespace MVVM.ViewModel
 
             double cena = nowaPaczka.ObliczCene();
 
-            KomunikatWyniku = $"Paczka dla: {nowaPaczka.Adresat} | Koszt: {cena} zł"; //tutaj nie wiem co oznacza$
-            //i nie wiem tez co robi |
+            KomunikatWyniku = $"Paczka dla: {nowaPaczka.Adresat} | Koszt: {cena} zł"; 
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
